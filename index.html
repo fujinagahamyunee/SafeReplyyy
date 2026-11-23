@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10233f">
+  <meta name="description" content="문자 내용과 취한 행동을 바탕으로 스미싱 위험 단계를 규칙 기반으로 확인하고 대응 방법을 안내합니다.">
+  <title>SafeReply — 의심 문자 안전 점검</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#" aria-label="SafeReply 홈">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 3.5 27 8v7.4c0 6.7-4.5 11.1-11 13.1C10.5 26.5 6 22.1 6 15.4V8l10-4.5Z" fill="currentColor" opacity=".18"/>
+            <path d="M16 3.5 27 8v7.4c0 6.7-4.5 11.1-11 13.1C10.5 26.5 6 22.1 6 15.4V8l10-4.5Z" stroke="currentColor" stroke-width="2"/>
+            <path d="m11.5 15.7 3 3 6-6.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">Safe<span>Reply</span></span>
+      </a>
+      <div class="privacy-chip"><span class="privacy-dot"></span> 입력 정보는 이 기기에만 머물러요</div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro">
+      <div class="intro-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> 문자 안전 점검 도우미</div>
+        <h1>의심 문자를 받으셨나요?<br><span>차근차근 확인해 보세요.</span></h1>
+        <p>문자 내용과 실제로 취한 행동을 바탕으로 위험 단계를 살펴보고, 지금 할 수 있는 대응을 안내해 드립니다.</p>
+      </div>
+      <div class="intro-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-shield">
+          <svg viewBox="0 0 88 100" fill="none">
+            <path d="M44 5 78 19v23c0 24-14 40-34 51C24 82 10 66 10 42V19L44 5Z" fill="url(#shieldGradient)" stroke="#fff" stroke-opacity=".85" stroke-width="2"/>
+            <path d="m29 48 10 10 21-22" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="shieldGradient" x1="13" y1="12" x2="75" y2="84" gradientUnits="userSpaceOnUse"><stop stop-color="#75B8FF"/><stop offset="1" stop-color="#3374D6"/></linearGradient></defs>
+          </svg>
+        </div>
+        <span class="art-spark spark-one"></span><span class="art-spark spark-two"></span>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <section class="main-column" aria-label="문자 점검">
+        <div class="panel input-panel">
+          <div class="panel-heading">
+            <div class="heading-icon message-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l1.5-3A7.5 7.5 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 11.5h7M8.5 8.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h2>문자 내용과 행동 입력</h2>
+              <p>문자 내용은 단서 확인에만 사용됩니다.</p>
+            </div>
+            <span class="step-tag">STEP 01</span>
+          </div>
+
+          <label class="field-label" for="message">받은 문자 내용 <span class="optional">선택</span></label>
+          <textarea id="message" rows="5" maxlength="5000" placeholder="의심되는 문자 내용을 붙여 넣어 주세요.&#10;예: [택배] 주소 오류로 배송이 보류되었습니다. 아래 링크에서 확인해 주세요."></textarea>
+          <div class="field-meta"><span>개인정보가 포함되어 있다면 입력 전에 가려 주세요.</span><span id="char-count">0 / 5,000</span></div>
+
+          <div class="section-divider"></div>
+          <fieldset class="actions-fieldset">
+            <legend>문자를 받은 뒤 어떤 행동을 하셨나요? <span class="required">필수 확인</span></legend>
+            <p class="fieldset-hint">해당하는 항목을 모두 선택해 주세요. 선택한 행동으로 위험 단계를 추론합니다.</p>
+            <div class="action-list">
+              <label class="action-option">
+                <input type="checkbox" name="action" value="clicked">
+                <span class="checkmark" aria-hidden="true"></span>
+                <span class="option-icon icon-link" aria-hidden="true">↗</span>
+                <span class="option-copy"><strong>문자 속 링크를 눌렀어요</strong><small>웹페이지가 열렸지만 정보를 입력하거나 설치하지는 않음</small></span>
+              </label>
+              <label class="action-option">
+                <input type="checkbox" name="action" value="installed">
+                <span class="checkmark" aria-hidden="true"></span>
+                <span class="option-icon icon-app" aria-hidden="true">▣</span>
+                <span class="option-copy"><strong>앱이나 파일을 설치했어요</strong><small>문자 링크 또는 안내에 따라 앱·파일을 내려받음</small></span>
+              </label>
+              <label class="action-option">
+                <input type="checkbox" name="action" value="personal">
+                <span class="checkmark" aria-hidden="true"></span>
+                <span class="option-icon icon-info" aria-hidden="true">i</span>
+                <span class="option-copy"><strong>개인정보나 금융정보를 입력했어요</strong><small>비밀번호, 인증번호, 계좌·카드 정보를 포함</small></span>
+              </label>
+              <label class="action-option">
+                <input type="checkbox" name="action" value="transfer">
+                <span class="checkmark" aria-hidden="true"></span>
+                <span class="option-icon icon-money" aria-hidden="true">₩</span>
+                <span class="option-copy"><strong>금융 이체를 시도했거나 금전 피해를 확인했어요</strong><small>실제 이체 시도 또는 확인된 금전 피해가 있는 경우</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="button" class="button button-primary" id="analyze-button">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.8 2.5a6.3 6.3 0 1 0 0 12.6 6.3 6.3 0 0 0 0-12.6ZM13.4 13.4l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              위험 단계 분석하기
+            </button>
+            <button type="button" class="button button-secondary" id="reset-button">초기화</button>
+          </div>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </div>
+
+        <section class="panel result-panel" id="result-panel" aria-labelledby="result-title" aria-live="polite">
+          <div class="panel-heading result-heading">
+            <div class="heading-icon result-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 15v-3m4 3V7m4 8v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div><h2 id="result-title">분석 결과</h2><p>선택하신 행동을 규칙 기반으로 확인합니다.</p></div>
+            <span class="step-tag">STEP 02</span>
+          </div>
+          <div class="empty-result" id="empty-result">
+            <div class="empty-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 5 41 12v11.5c0 11.8-7 19.2-17 23-10-3.8-17-11.2-17-23V12l17-7Z" stroke="currentColor" stroke-width="2"/><path d="M24 16v9m0 7h.02" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+            <strong>아직 분석하지 않았어요</strong>
+            <span>문자 이후 취한 행동을 선택하고<br>분석 버튼을 눌러 주세요.</span>
+          </div>
+          <div id="analysis-result" hidden>
+            <div class="risk-banner" id="risk-banner">
+              <div class="risk-banner-top"><span class="risk-kicker" id="risk-kicker">추론된 위험 단계</span><span class="risk-stage" id="risk-stage"></span></div>
+              <h3 id="risk-title"></h3>
+              <p id="risk-description"></p>
+            </div>
+
+            <div class="stage-track" id="stage-track" aria-label="위험 단계 진행도"></div>
+
+            <section class="result-section">
+              <h3 class="subsection-title"><span class="subsection-symbol rule-symbol">R</span> 적용된 추론 규칙</h3>
+              <div class="rule-card" id="rule-card"></div>
+            </section>
+
+            <section class="result-section">
+              <h3 class="subsection-title"><span class="subsection-symbol clue-symbol">⌕</span> 문자에서 발견한 단서 <span class="separate-note">위험 단계 추론과 별도 분석</span></h3>
+              <div class="clue-list" id="clue-list"></div>
+              <p class="no-clues" id="no-clues" hidden>입력한 문자에서 미리 정의된 단서를 찾지 못했어요. 단서가 없더라도 안전하다는 뜻은 아닙니다.</p>
+              <p class="clue-caveat">문자 단서만으로 위험 단계를 올리거나 감염·정보 유출 여부를 판단하지 않습니다.</p>
+            </section>
+
+            <section class="result-section response-section">
+              <h3 class="subsection-title"><span class="subsection-symbol response-symbol">✓</span> 지금 할 수 있는 대응</h3>
+              <ul class="response-list" id="response-list"></ul>
+            </section>
+
+            <section class="summary-box">
+              <div class="summary-heading"><div><h3>상담·신고용 사고 요약</h3><p>필요한 경우 복사해 상담 시 참고하세요.</p></div>
+                <button class="copy-button" type="button" id="copy-button">
+                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="6" width="9" height="11" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M13 6V4.5A1.5 1.5 0 0 0 11.5 3h-7A1.5 1.5 0 0 0 3 4.5v9A1.5 1.5 0 0 0 4.5 15H7" stroke="currentColor" stroke-width="1.6"/></svg>
+                  요약 복사
+                </button>
+              </div>
+              <textarea id="incident-summary" readonly rows="6" aria-label="상담 및 신고용 사고 요약"></textarea>
+              <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+            </section>
+          </div>
+        </section>
+      </section>
+
+      <aside class="side-column" aria-label="안전 참고 정보">
+        <section class="side-card safety-card">
+          <div class="side-card-title"><span class="side-title-icon safety-icon" aria-hidden="true">✓</span><h2>기억해 주세요</h2></div>
+          <ul class="safety-list">
+            <li><span>01</span><p>문자에 포함된 링크는 누르지 말고, 공식 앱이나 홈페이지에서 직접 확인하세요.</p></li>
+            <li><span>02</span><p>인증번호·비밀번호·금융정보를 문자나 전화로 알려주지 마세요.</p></li>
+            <li><span>03</span><p>이미 정보를 입력했거나 이체했다면 금융회사에 바로 연락하세요.</p></li>
+          </ul>
+          <a class="help-link" href="tel:112"><span>긴급 신고가 필요하신가요?</span><strong>112 신고 안내 <span aria-hidden="true">↗</span></strong></a>
+        </section>
+
+        <section class="side-card data-card">
+          <div class="side-card-title"><span class="side-title-icon data-icon" aria-hidden="true">▤</span><h2>참고 데이터</h2></div>
+          <div class="data-stats">
+            <div><strong>100<span>건</span></strong><small>합성 데이터</small></div>
+            <div class="stats-divider"></div>
+            <div><strong>987<span>건</span></strong><small>이벤트</small></div>
+          </div>
+          <p class="data-disclaimer">표시된 수치는 설명을 위한 합성 참고값이며 실제 범죄 발생 건수나 발생률이 아닙니다. 추론 엔진의 학습에 사용되지 않습니다.</p>
+        </section>
+
+        <section class="side-card method-card">
+          <div class="side-card-title"><span class="side-title-icon method-icon" aria-hidden="true">⚙</span><h2>분석 방식</h2></div>
+          <p>사용자가 선택한 행동을 사실(Fact)로 변환하고, 사전에 정의된 규칙(Rule)과 대조해 해당하는 가장 높은 위험 단계를 추론합니다.</p>
+          <div class="method-flow"><span>행동 입력</span><i>→</i><span>규칙 비교</span><i>→</i><span>단계 안내</span></div>
+          <p class="method-note">문자 속 표현은 단서로 따로 보여주며, 단계 추론에는 사용하지 않습니다. 이 도구는 진단이나 피해 확정 서비스가 아닙니다.</p>
+        </section>
+
+        <div class="privacy-note"><span class="lock-icon" aria-hidden="true">▣</span><p><strong>개인정보 보호</strong><br>입력한 내용은 서버로 전송되거나 저장되지 않습니다. 분석은 현재 브라우저에서만 이루어집니다.</p></div>
+      </aside>
+    </div>
+
+    <footer class="footer"><span>SafeReply</span><span>스미싱 의심 문자 대응을 돕기 위한 참고 도구입니다.</span></footer>
+  </main>
+</body>
+</html>
