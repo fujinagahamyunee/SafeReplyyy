@@ -28,10 +28,7 @@ jobs:
       - name: Upload website files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: |
-            index.html
-            styles.css
-            app.js
+          path: .
       - name: Deploy website
         id: deployment
         uses: actions/deploy-pages@v4
