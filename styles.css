@@ -231,3 +231,69 @@ textarea { display: block; width: 100%; resize: vertical; outline: none; }
   .privacy-note { grid-column: auto; }
   .footer { flex-direction: column; gap: 5px; }
 }
+
+/* Larger reading sizes for the expanded safety guidance. */
+body { font-size: 16px; }
+.privacy-chip { font-size: 14px; }
+.brand-name { font-size: 23px; }
+.intro h1 { font-size: clamp(34px, 3.4vw, 42px); }
+.eyebrow { font-size: 14px; }
+.intro-copy > p { font-size: 16px; line-height: 1.85; }
+.panel-heading h2 { font-size: 19px; }
+.panel-heading p { font-size: 13px; line-height: 1.6; }
+.step-tag { font-size: 11px; }
+.field-label, .actions-fieldset legend { font-size: 15px; }
+.optional, .required { font-size: 11px; }
+.fieldset-hint { font-size: 12px; line-height: 1.6; }
+#message { font-size: 15px; }
+.field-meta { font-size: 12px; line-height: 1.5; }
+.action-option { min-height: 72px; }
+.option-copy strong { font-size: 14px; }
+.option-copy small { font-size: 12px; line-height: 1.6; }
+.button { min-height: 46px; font-size: 14px; }
+.form-status { font-size: 12px; }
+.empty-result strong { font-size: 15px; }
+.empty-result span { font-size: 13px; }
+.risk-kicker, .risk-stage { font-size: 12px; }
+.risk-banner h3 { font-size: 21px; }
+.risk-banner > p { font-size: 14px; line-height: 1.85; }
+.stage-step { font-size: 12px; }
+.stage-step span { font-size: 10px; }
+.subsection-title { font-size: 14px; }
+.rule-name { font-size: 13px; }
+.rule-condition { font-size: 13px; }
+.rule-reason { font-size: 12px; line-height: 1.8; }
+.separate-note { font-size: 11px; }
+.clue-chip, .no-clues, .clue-caveat { font-size: 12px; line-height: 1.8; }
+.response-list li { font-size: 13px; line-height: 1.85; }
+.summary-heading h3 { font-size: 14px; }
+.summary-heading p { font-size: 12px; }
+.copy-button { min-height: 36px; font-size: 12px; }
+#incident-summary { font-size: 12px; line-height: 1.85; }
+.copy-status { font-size: 12px; }
+.side-card-title h2 { font-size: 16px; }
+.safety-list li > span { font-size: 11px; }
+.safety-list p { font-size: 13px; line-height: 1.85; }
+.help-link > span, .help-link strong { font-size: 12px; }
+.data-stats strong { font-size: 25px; }
+.data-stats small { font-size: 12px; }
+.data-disclaimer { font-size: 11px; line-height: 1.85; }
+.method-card > p { font-size: 12px; line-height: 1.85; }
+.method-flow { font-size: 11px; }
+.method-card .method-note { font-size: 11px; }
+.privacy-note p { font-size: 11px; line-height: 1.85; }
+.privacy-note strong { font-size: 12px; }
+.footer { font-size: 11px; }
+
+@media (max-width: 700px) {
+  .privacy-chip { font-size: 0; }
+  .intro h1 { font-size: 30px; }
+  .intro-copy > p { font-size: 14px; }
+  .panel-heading h2 { font-size: 17px; }
+  .option-copy strong { font-size: 13px; }
+  .option-copy small { font-size: 11px; }
+  .risk-banner h3 { font-size: 18px; }
+  .risk-banner > p { font-size: 13px; }
+  .stage-track { gap: 4px; }
+  .stage-step { font-size: 10px; }
+}
